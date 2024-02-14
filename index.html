@@ -39,13 +39,10 @@
         }
         h3 {
             color: #fff;
-            margin-bottom: 20px;
             display: none;
-            position: absolute;
-            top: 150px;
-            text-align: center;
-            left: 50%;
-            translate: -50%;
+            position: relative;
+            margin-bottom: 50px;
+            max-width: 400px;
         }
         .heart-container {
             position: relative;
@@ -101,8 +98,18 @@
                 max-width: 400px;
                 max-height: 400px;
             }
-        }
-    </style>
+            h3 {
+                color: #fff;
+                margin-bottom: 20px;
+                display: none;
+                position: absolute;
+                top: 150px;
+                text-align: center;
+                left: 50%;
+                translate: -50%;
+            }
+            }
+</style>
 </head>
 <body>
 <div class="title-container">
@@ -140,7 +147,6 @@
 
     function breakHeart() {
         document.querySelector(".heart").style.display = "none";
-        // document.querySelector(".broken-heart").style.display = "block";
         document.querySelector("h3").style.display = "block";
         document.querySelector("h1").style.display = "none";
         document.querySelector("p").style.display = "none";
