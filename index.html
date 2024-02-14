@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт-открытка на 14 февраля</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100dvh;
+            width: 100%;
+            flex-direction: column;
+        }
+        .title-container {
+            position: absolute;
+            padding: 0 20px;
+            top: -100px;
+            left: 0;
+            right: 0;
+            animation: appearTitle 2s forwards;
+        }
+        @keyframes appearTitle {
+            0% {
+                top: -100px;
+            }
+            100% {
+                top: 50px;
+            }
+        }
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            display: none;
+            position: absolute;
+            top: 150px;
+            text-align: center;
+            left: 50%;
+            translate: -50%;
+        }
+        .heart-container {
+            position: relative;
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            opacity: 0;
+            animation: appearHeart 1s forwards;
+        }
+        @keyframes appearHeart {
+            0% {
+                transform: translateX(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .heart {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+        #slider {
+            display: none;
+        }
+        .caption {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+        .slide {
+            position: relative;
+            max-width: 600px;
+            max-height: 600px;
+            width: auto\9;
+        }
+        .slide img {
+            max-width: 600px;
+            max-height: 600px;
+            width: auto\9;
+        }
+        @media (max-width: 600px) {
+            .slide img {
+                max-width: 400px;
+                max-height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="title-container">
+    <h1>Дашенька, эта открыточка для тебя)))</h1>
+</div>
+<div class="top-content">
+    <h3>Будь всегда такой же жизнерадостной и сладкой булочкой 😍</h3>
+</div>
+<div class="heart-container" onclick="breakHeart()">
+    <img class="heart" src="./assets/img/heart.png" alt="Heart">
+    <p style="color: #fff; font-size: 14px; font-weight: 600;">Нажми на сердечко</p>
+</div>
+<div id="slider">
+    <div class="slide">
+        <img src="./assets/img/1.jpeg" alt="Slide 1">
+        <p class="caption">ты покорила меня</p>
+    </div>
+    <div class="slide">
+        <img src="./assets/img/2.jpeg" alt="Slide 2">
+        <p class="caption">своей серьезностью</p>
+    </div>
+    <div class="slide">
+        <img src="./assets/img/3.jpeg" alt="Slide 3">
+        <p class="caption">и задумчивостью</p>
+    </div>
+    <div class="slide">
+        <img src="./assets/img/4.jpeg" alt="Slide 4">
+        <p class="caption">улыбкой и открытостью</p>
+    </div>
+</div>
+
+<script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function breakHeart() {
+        document.querySelector(".heart").style.display = "none";
+        // document.querySelector(".broken-heart").style.display = "block";
+        document.querySelector("h3").style.display = "block";
+        document.querySelector("h1").style.display = "none";
+        document.querySelector("p").style.display = "none";
+        document.getElementById("slider").style.display = "block";
+        showSlides();
+    }
+
+    function showSlides() {
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 2000);
+    }
+</script>
+</body>
+</html>
